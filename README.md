@@ -1,35 +1,24 @@
 # Binary Search Tree and Balanced Binary Tree Implementations in C++
 
-This project demonstrates two different tree data structures in C++: a Binary Search Tree (BST) and a Balanced Binary Tree.
+This project is a Visual Studio solution demonstrating two tree data structures in C++: a Binary Search Tree (BST) and a Balanced Binary Tree. It features:
 
-## Functions
-
-- **Insertion & Deletion:** Add and remove elements from the trees.
-- **Display:** Visualize the trees in a top-down representation.
-- **Level Order Traversal:** Traverse the Binary Search Tree using Breadth-First Search (BFS).
-- **Tree Properties:** Check if the Balanced Binary Tree is full, complete, or perfect.
-- **Max Element Display (Binary Search Tree):** Show both the maximum element and its level in the Binary Search Tree.
-- **Error Handling:** User input is validated to ensure a robust experience.
-
-## Features
-
-- **Persistent State:** The trees are created only once and persist across menu operations.
-- **Menus:** Interactive console menus that allow you to switch between the Binary Search Tree and Binary Tree functionalities.
-- **Input Validation:** Ensures that only valid integer inputs are accepted.
-- **Visual Tree Representation:** Both trees are displayed in a structured, visual format.
+- **Insertion & Deletion:** Add and remove elements from both trees.
+- **Visual Display:** Show trees in a structured, top-down format.
+- **Traversal & Analysis:** Perform level order traversal (BFS) and check tree properties (full, complete, perfect).
+- **Maximum Element (BST):** Display the maximum element along with its level.
+- **Robust Input Handling:** Validate user input to ensure a smooth experience.
 
 
 
 ### Prerequisites
 
-- A C++ compiler (such as `g++`)
-- Git (to clone the repository)
+- [Visual Studio](https://visualstudio.microsoft.com/) (any recent version supporting C++ development)
 
-### Installation
+### Installation and Setup
 
-1. **Clone the repository:**
+1. **Clone the Repository:**
+
+   Open your terminal or Git Bash and run:
 
    ```bash
-   git clone https://github.com/icliberen/binary-trees.git
-   cd binary-trees
-
+   git clone https://icliberen/binary-trees.git
