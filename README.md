@@ -8,17 +8,23 @@ This project is a Visual Studio solution demonstrating two tree data structures 
 - **Maximum Element (BST):** Display the maximum element along with its level.
 - **Robust Input Handling:** Validate user input to ensure a smooth experience.
 
+---
 
+## Prerequisites
 
-### Prerequisites
+- **For Building from Source:**
+  - [Visual Studio](https://visualstudio.microsoft.com/) (2019 or later with C++ development)
+  - Alternatively, a C++ compiler such as `g++` (for command-line builds)
 
-- [Visual Studio](https://visualstudio.microsoft.com/) (any recent version supporting C++ development)
+- **For Running Pre-Built Releases:**
+  - No development tools required—just the executable for windows operating system
 
-### Installation and Setup
+---
+
+## How to Run the Application
+
+### Using Visual Studio
 
 1. **Clone the Repository:**
-
-   Open your terminal or Git Bash and run:
-
    ```bash
-   git clone https://icliberen/binary-trees.git
+   git clone https://github.com/icliberen/binary-trees.git
