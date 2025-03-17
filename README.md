@@ -36,9 +36,10 @@ This project is a Visual Studio solution demonstrating two tree data structures 
    git clone https://github.com/icliberen/binary-trees.git
 
 2. **Compile the Code:**
+   ```bash
    g++ -o binary_trees bstbt.cpp
 
-3. **Run the Executable:**
+4. **Run the Executable:**
    
    On Linux or macOS:
    ./binary_trees
