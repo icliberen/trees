@@ -45,4 +45,4 @@ This project is a Visual Studio solution demonstrating two tree data structures 
    ./binary_trees
 
    On Windows:
-   binary_trees.exe
+   bstbt.exe
