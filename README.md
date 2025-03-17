@@ -42,7 +42,6 @@ This project is a Visual Studio solution demonstrating two tree data structures 
 4. **Run the Executable:**
    
    On Linux or macOS:
+   ```bash
    ./binary_trees
 
-   On Windows:
-   bstbt.exe
