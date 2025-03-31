@@ -1,15 +1,15 @@
-# Binary Search Tree, Balanced Binary Tree, and Heap Implementations in C++
+# Binary Search Tree, Balanced Binary Tree and Heap Implementations in C++
 
 This project demonstrates multiple tree-based data structures in C++:
 
 - **Binary Search Tree (BST):**  
-  - Supports insertion, deletion, and a visual display (both balanced and level order).
+  - Supports insertion, deletion and a visual display (both balanced and level order).
   - Displays the maximum element along with its level.
 
 - **Balanced Binary Tree:**  
   - Uses a balanced insertion method.
   - Allows deletion of the last inserted element.
-  - Displays the tree and checks properties such as full, complete, and perfect.
+  - Displays the tree and checks properties such as full, complete and perfect.
 
 - **Heap:**  
   - Implements both MinHeap and MaxHeap functionalities.
@@ -26,7 +26,7 @@ This project demonstrates multiple tree-based data structures in C++:
   - Level order (BFS) traversal for BST.
 - **Heap Type Switching:**  
   - Change between min-heap and max-heap on the fly.
-- **Tree Property Analysis:** Check if binary trees are full, complete, or perfect.
+- **Tree Property Analysis:** Check if binary trees are full, complete or perfect.
 - **Robust Input Handling:** Ensures only valid integer inputs are accepted.
 
 ---
@@ -38,7 +38,7 @@ This project demonstrates multiple tree-based data structures in C++:
   - Alternatively, a C++ compiler such as `g++` (for command-line builds)
 
 - **For Running Pre-Built Releases:**
-  - No development tools required—just the executable for windows operating system
+  - No development tools required, just the executable for windows operating system
 
 ---
 
@@ -48,13 +48,13 @@ This project demonstrates multiple tree-based data structures in C++:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/icliberen/binary-trees.git
+   git clone https://github.com/icliberen/binary-heap-trees.git
 
 ### Using terminal
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/icliberen/binary-trees.git
+   git clone https://github.com/icliberen/binary-heap-trees.git
 
 2. **Compile the Code:**
    ```bash
