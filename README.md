@@ -58,11 +58,11 @@ This project demonstrates multiple tree-based data structures in C++:
 
 2. **Compile the Code:**
    ```bash
-   g++ -o binary_trees bstbt.cpp
+   g++ -o binary-trees-main bstbt.cpp
 
 4. **Run the Executable:**
    
    On Linux or macOS:
    ```bash
-   ./binary_trees
+   ./binary-trees-main
 
