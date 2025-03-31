@@ -1,12 +1,33 @@
-# Binary Search Tree and Balanced Binary Tree Implementations in C++
+# Binary Search Tree, Balanced Binary Tree, and Heap Implementations in C++
 
-This project is a Visual Studio solution demonstrating two tree data structures in C++: a Binary Search Tree (BST) and a Balanced Binary Tree. It features:
+This project demonstrates multiple tree-based data structures in C++:
 
-- **Insertion & Deletion:** Add and remove elements from both trees.
-- **Visual Display:** Show trees in a structured, top-down format.
-- **Traversal & Analysis:** Perform level order traversal (BFS) and check tree properties (full, complete, perfect).
-- **Maximum Element (BST):** Display the maximum element along with its level.
-- **Robust Input Handling:** Validate user input to ensure a smooth experience.
+- **Binary Search Tree (BST):**  
+  - Supports insertion, deletion, and a visual display (both balanced and level order).
+  - Displays the maximum element along with its level.
+
+- **Balanced Binary Tree:**  
+  - Uses a balanced insertion method.
+  - Allows deletion of the last inserted element.
+  - Displays the tree and checks properties such as full, complete, and perfect.
+
+- **Heap:**  
+  - Implements both MinHeap and MaxHeap functionalities.
+  - Visualizes the heap as a tree with `/` and `\` representing parent-child connections.
+  - Allows dynamic switching between MinHeap and MaxHeap even after creation.
+
+---
+
+## Features
+
+- **Insertion & Deletion:** Easily add and remove elements in each data structure.
+- **Visual Display:**  
+  - Structured top-down visualization for both trees and heap.
+  - Level order (BFS) traversal for BST.
+- **Heap Type Switching:**  
+  - Change between min-heap and max-heap on the fly.
+- **Tree Property Analysis:** Check if binary trees are full, complete, or perfect.
+- **Robust Input Handling:** Ensures only valid integer inputs are accepted.
 
 ---
 
