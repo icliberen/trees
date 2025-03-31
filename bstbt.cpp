@@ -155,7 +155,7 @@ private:
             cout << "Tree is empty.\n";
             return;
         }
-        int spacingFactor = 2; // You can adjust this factor as needed
+        int spacingFactor = 2;
         vector<BSTNode*> current;
         current.push_back(root);
         int level = 1;
@@ -250,9 +250,8 @@ private:
         displaySimple();
     }
 
-
 public:
-    BST(bool allowDuplicates = false) : root(nullptr), allowDuplicates(allowDuplicates) {}
+    BST(bool allowDuplicates = true) : root(nullptr), allowDuplicates(allowDuplicates) {}
 
     void insert(int value)
     {
@@ -274,7 +273,6 @@ public:
         cout << "\nBinary Search Tree Visual Representation:\n";
         displayBoth();
     }
-
 
     void levelOrderTraversal()
     {
@@ -432,7 +430,7 @@ private:
         string nodeStr = to_string(node->value);
         vector<string> leftLines = buildTreeString(node->left);
         vector<string> rightLines = buildTreeString(node->right);
-        int leftWidth = leftLines.empty() ? 0 : leftLines[0].size(); // condition ? expression_if_true : expression_if_false;
+        int leftWidth = leftLines.empty() ? 0 : leftLines[0].size();
         int rightWidth = rightLines.empty() ? 0 : rightLines[0].size();
         string firstLine = string(leftWidth, ' ') + nodeStr + string(rightWidth, ' ');
         string secondLine;
@@ -612,6 +610,170 @@ public:
     }
 };
 
+// ==================== Heap Implementation ====================
+
+class Heap
+{
+private:
+    vector<int> data;
+    bool isMinHeap;
+
+    bool compare(int a, int b)
+    {
+        if (isMinHeap)
+            return a < b;
+        else
+            return a > b;
+    }
+
+    void heapifyUp(int index)
+    {
+        while (index > 0)
+        {
+            int parent = (index - 1) / 2;
+            if (compare(data[index], data[parent]))
+            {
+                swap(data[index], data[parent]);
+                index = parent;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+
+    void heapifyDown(int index)
+    {
+        int size = data.size();
+        while (true)
+        {
+            int left = 2 * index + 1;
+            int right = 2 * index + 2;
+            int selected = index;
+            if (left < size && compare(data[left], data[selected]))
+                selected = left;
+            if (right < size && compare(data[right], data[selected]))
+                selected = right;
+            if (selected != index)
+            {
+                swap(data[index], data[selected]);
+                index = selected;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+
+    void rebuildHeap()
+    {
+        int n = data.size();
+        for (int i = n / 2 - 1; i >= 0; i--)
+        {
+            heapifyDown(i);
+        }
+    }
+
+    vector<string> buildHeapString(int index)
+    {
+        vector<string> result;
+        if (index >= data.size())
+            return result;
+        string nodeStr = to_string(data[index]);
+        vector<string> leftLines = buildHeapString(2 * index + 1);
+        vector<string> rightLines = buildHeapString(2 * index + 2);
+        int leftWidth = leftLines.empty() ? 0 : leftLines[0].size();
+        int rightWidth = rightLines.empty() ? 0 : rightLines[0].size();
+        string firstLine = string(leftWidth, ' ') + nodeStr + string(rightWidth, ' ');
+        string secondLine;
+        if (2 * index + 1 < data.size())
+            secondLine += string(max(0, leftWidth - 1), ' ') + "/";
+        else
+            secondLine += string(leftWidth, ' ');
+        secondLine += string(nodeStr.size(), ' ');
+        if (2 * index + 2 < data.size())
+            secondLine += "\\" + string(max(0, rightWidth - 1), ' ');
+        else
+            secondLine += string(rightWidth, ' ');
+        int maxSubLines = max(leftLines.size(), rightLines.size());
+        vector<string> mergedSubLines;
+        for (int i = 0; i < maxSubLines; i++)
+        {
+            string leftLine = (i < leftLines.size()) ? leftLines[i] : string(leftWidth, ' ');
+            string rightLine = (i < rightLines.size()) ? rightLines[i] : string(rightWidth, ' ');
+            mergedSubLines.push_back(leftLine + string(nodeStr.size(), ' ') + rightLine);
+        }
+        result.push_back(firstLine);
+        if ((2 * index + 1 < data.size()) || (2 * index + 2 < data.size()))
+            result.push_back(secondLine);
+        result.insert(result.end(), mergedSubLines.begin(), mergedSubLines.end());
+        return result;
+    }
+
+public:
+    Heap(bool isMin = true) : isMinHeap(isMin) {}
+
+    void insert(int value)
+    {
+        data.push_back(value);
+        heapifyUp(data.size() - 1);
+    }
+
+    bool isEmpty()
+    {
+        return data.empty();
+    }
+
+    int getRoot()
+    {
+        if (data.empty())
+        {
+            cout << "Heap is empty.\n";
+            return -1;
+        }
+        return data[0];
+    }
+
+    void removeRoot()
+    {
+        if (data.empty())
+        {
+            cout << "Heap is empty.\n";
+            return;
+        }
+        data[0] = data.back();
+        data.pop_back();
+        if (!data.empty())
+            heapifyDown(0);
+    }
+
+    void switchHeapType()
+    {
+        isMinHeap = !isMinHeap;
+        rebuildHeap();
+        cout << "Heap type switched. Current type: "
+            << (isMinHeap ? "MinHeap" : "MaxHeap") << "\n";
+    }
+
+    void display()
+    {
+        if (data.empty())
+        {
+            cout << "Heap is empty.\n";
+            return;
+        }
+        cout << "\nHeap Tree Visualization ("
+            << (isMinHeap ? "MinHeap" : "MaxHeap") << "):\n";
+        vector<string> lines = buildHeapString(0);
+        for (const auto& line : lines)
+        {
+            cout << line << "\n";
+        }
+    }
+};
+
 // ==================== Persistent Menu Functions ====================
 
 void runBST(BST* bst)
@@ -667,7 +829,7 @@ void runBST(BST* bst)
     }
 }
 
-void runBinaryTree(BinaryTree* tree, bool duplicatesAllowed)
+void runBinaryTree(BinaryTree* tree)
 {
     while (true)
     {
@@ -682,15 +844,8 @@ void runBinaryTree(BinaryTree* tree, bool duplicatesAllowed)
         if (choice == 1)
         {
             int val = getValidatedInt("Enter integer to insert: ");
-            if (!duplicatesAllowed && tree->exists(val))
-            {
-                cout << "Duplicates are not allowed. Value " << val << " already exists.\n";
-            }
-            else
-            {
-                tree->insert(val);
-                cout << "Inserted " << val << " into the tree.\n";
-            }
+            tree->insert(val);
+            cout << "Inserted " << val << " into the tree.\n";
             waitForEnter();
         }
         else if (choice == 2)
@@ -730,27 +885,82 @@ void runBinaryTree(BinaryTree* tree, bool duplicatesAllowed)
     }
 }
 
+void runHeap(Heap* heap)
+{
+    while (true)
+    {
+        clearScreen();
+        cout << "\nHeap Menu:\n";
+        cout << "1. Insert integer\n";
+        cout << "2. Remove root element\n";
+        cout << "3. Display Heap\n";
+        cout << "4. Switch Heap Type\n";
+        cout << "5. Exit to Main Menu\n";
+        int choice = getValidatedInt("Enter your choice: ");
+        if (choice == 1)
+        {
+            int value = getValidatedInt("Enter integer to insert: ");
+            heap->insert(value);
+            cout << value << " inserted into the heap.\n";
+            waitForEnter();
+        }
+        else if (choice == 2)
+        {
+            if (heap->isEmpty())
+            {
+                cout << "Heap is empty, nothing to remove.\n";
+            }
+            else
+            {
+                int rootValue = heap->getRoot();
+                heap->removeRoot();
+                cout << "Removed root element: " << rootValue << "\n";
+            }
+            waitForEnter();
+        }
+        else if (choice == 3)
+        {
+            heap->display();
+            waitForEnter();
+        }
+        else if (choice == 4)
+        {
+            heap->switchHeapType();
+            waitForEnter();
+        }
+        else if (choice == 5)
+        {
+            break;
+        }
+        else
+        {
+            cout << "Invalid choice, please try again.\n";
+            waitForEnter();
+        }
+    }
+}
+
 // ==================== Main Function ====================
 
 int main()
 {
     BST* bst = nullptr;
     BinaryTree* btree = nullptr;
-    bool btDuplicatesAllowed = true; // default; will be set when first created
+    Heap* heap = nullptr;
     while (true)
     {
         clearScreen();
         cout << "\nMain Menu:\n";
         cout << "1. Binary Search Tree (BST)\n";
         cout << "2. Binary Tree\n";
-        cout << "3. Exit\n";
+        cout << "3. Heap\n";
+        cout << "4. Exit\n";
         int mainChoice = getValidatedInt("Enter your choice: ");
         if (mainChoice == 1)
         {
             if (bst == nullptr)
             {
-                int allowDup = getValidatedInt("Do you want to allow duplicates in the Binary Search Tree? (Enter 1 for Yes, 0 for No): ");
-                bst = new BST(allowDup == 1);
+                bst = new BST(true);
             }
             runBST(bst);
         }
@@ -758,13 +968,32 @@ int main()
         {
             if (btree == nullptr)
             {
-                int allowDup = getValidatedInt("Do you want to allow duplicates in the Binary Tree? (Enter 1 for Yes, 0 for No): ");
-                btDuplicatesAllowed = (allowDup == 1);
                 btree = new BinaryTree();
             }
-            runBinaryTree(btree, btDuplicatesAllowed);
+            runBinaryTree(btree);
         }
         else if (mainChoice == 3)
+        {
+            if (heap == nullptr)
+            {
+                int heapChoice = getValidatedInt("Select Heap Type (Enter 1 for MinHeap, 2 for MaxHeap): ");
+                if (heapChoice == 1)
+                {
+                    heap = new Heap(true);
+                }
+                else if (heapChoice == 2)
+                {
+                    heap = new Heap(false);
+                }
+                else
+                {
+                    cout << "Invalid choice. Defaulting to MinHeap.\n";
+                    heap = new Heap(true);
+                }
+            }
+            runHeap(heap);
+        }
+        else if (mainChoice == 4)
         {
             break;
         }
@@ -776,5 +1005,6 @@ int main()
     }
     delete bst;
     delete btree;
+    delete heap;
     return 0;
 }
