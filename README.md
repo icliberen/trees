@@ -1,68 +1,70 @@
-# Binary Search Tree, Balanced Binary Tree and Heap Implementations in C++
+# Trees and Heap
 
-This project demonstrates multiple tree-based data structures in C++:
+This repository brings together several C++ implementations of fundamental tree-based and heap-based data structures, each featuring insertion, deletion, and visualization.
 
-- **Binary Search Tree (BST):**  
-  - Supports insertion, deletion and a visual display (both balanced and level order).
-  - Displays the maximum element along with its level.
+## Contents
 
-- **Balanced Binary Tree:**  
-  - Uses a balanced insertion method.
-  - Allows deletion of the last inserted element.
-  - Displays the tree and checks properties such as full, complete and perfect.
+1. **Binary Search Tree (BST)**
+   - Insertion, deletion, and level-order (BFS) traversal  
+   - ASCII visualization of the tree structure  
+   - Finds and displays the maximum element and its level  
 
-- **Heap:**  
-  - Implements both MinHeap and MaxHeap functionalities.
-  - Visualizes the heap as a tree with `/` and `\` representing parent-child connections.
-  - Allows dynamic switching between MinHeap and MaxHeap even after creation.
+2. **Balanced Binary Tree**
+   - Inserts nodes while maintaining balance  
+   - Removes the most recently inserted node  
+   - Visualizes the tree and checks whether it is full, complete, or perfect  
 
----
+3. **Heap**
+   - Implements both **Min-Heap** and **Max-Heap**  
+   - ASCII-art visualization using `/` and `\` for parent-child edges  
+   - Switch between Min-Heap and Max-Heap modes dynamically  
+
+4. **Red-Black Tree**
+   - Interactive console program (`rbtree.cpp` / `rbtree.exe`)  
+   - Supported directives:  
+     - `insert <key>` / `delete <key>`  
+     - `print-rbt` (prints name & color, indented with `. ` per depth)  
+     - `dfs` (assigns and prints discovery/finish times)  
+     - `query <d> <f>` (find node by DFS timestamps)  
+     - `quit`  
+   - Uses DFS timestamps (`d` = discovery, `f` = finish) for advanced queries  
 
 ## Features
 
-- **Insertion & Deletion:** Easily add and remove elements in each data structure.
-- **Visual Display:**  
-  - Structured top-down visualization for both trees and heap.
-  - Level order (BFS) traversal for BST.
-- **Heap Type Switching:**  
-  - Change between min-heap and max-heap on the fly.
-- **Tree Property Analysis:** Check if binary trees are full, complete or perfect.
-- **Robust Input Handling:** Ensures only valid integer inputs are accepted.
-
----
+- **Insertion & Deletion** across all structures  
+- **Visualization**  
+  - Top-down ASCII display for trees and heaps  
+- **Heap Mode Switching**  
+  - Toggle between Min-Heap and Max-Heap at runtime  
+- **Tree Property Analysis**  
+  - Full, complete, and perfect checks for binary trees  
+- **DFS Timestamps**  
+  - Record entry/exit times for depth-first traversals in the Red-Black Tree  
 
 ## Prerequisites
 
-- **For Building from Source:**
-  - [Visual Studio](https://visualstudio.microsoft.com/) (2019 or later with C++ development)
-  - Alternatively, a C++ compiler such as `g++` (for command-line builds)
+- **Windows**: Visual Studio 2019 (or later) or Embarcadero Dev C++ 
+- **Cross-Platform**: g++ (C++11 or later)  
 
-- **For Running Pre-Built Releases:**
-  - No development tools required, just the executable for windows operating system
+## Building & Running
 
----
-
-## How to Run the Application
+- **Using Command-Line (g++)**
+  - git clone https://github.com/icliberen/trees-and-heap.git
+- **Compile**
+  - cd trees-and-heap
+  - g++ -std=c++11 -o bst          bst/main.cpp
+  - g++ -std=c++11 -o balanced     balanced/main.cpp
+  - g++ -std=c++11 -o heap         heap/main.cpp
+  - g++ -std=c++11 -o rbtree.exe   red-black-tree/rbtree.cpp
+- **Run**
+  - ./bst
+  - ./balanced
+  - ./heap
+  - ./rbtree.exe input.txt
 
 ### Using Visual Studio
 
-1. **Clone the Repository:**
+1. **Clone**  
    ```bash
-   git clone https://github.com/icliberen/binary-heap-trees.git
-
-### Using terminal
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/icliberen/binary-heap-trees.git
-
-2. **Compile the Code:**
-   ```bash
-   g++ -o binary_heap_trees main.cpp
-
-4. **Run the Executable:**
-   
-   On Linux or macOS:
-   ```bash
-   ./binary_heap_trees
+   git clone https://github.com/icliberen/trees-and-heap.git
 
